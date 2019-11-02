@@ -3,7 +3,7 @@ import Plot as pol
 from  tkinter import *
 from matplotlib import pyplot as plt
 import tot as t
-
+from PIL import ImageTk,Image
 from  tkinter.ttk import Combobox
 from tkinter.ttk import Checkbutton
 
@@ -14,7 +14,7 @@ import numpy as np
 window  =Tk()
 # that is for window
 window.title("Computational Intelligence Tasks")
-window.geometry("900x200")
+window.geometry("1800x1000")
 
 
 ##########################################################
@@ -26,7 +26,7 @@ ValueClass=["Iris-setosa","Iris-versicolor","Iris-virginica"]
 #TODO : make lable for Description the Task
 
 #lable
-title= Label(text="Task 1 :  Apply Single Layer Perceptron on Iris Data  ",bg="red")
+title= Label(text="Task 1 :  Apply Single Layer Perceptron on Iris Data  ",bg="pink")
 title.grid(column=0,row=0)
 
 #######################################################################
@@ -59,9 +59,9 @@ combo2.grid(column=3, row=1)
 #buttton for Plots
 #TODO : Button for Plots
 
-buttonplots =Button(text="Plots..." ,bg="blue",command= lambda: pol.Plots(combo.get(),combo2.get()))
+buttonplots =Button(text="Plots..." ,bg="pink",command= lambda: pol.Plots(combo.get(),combo2.get()))
 
-buttonplots.grid(column=5,row=1)
+buttonplots.grid(column=4,row=1)
 ###########################################################################
 # Class 1
 #TODO : make comboBox for Entry Class number one
@@ -94,7 +94,7 @@ comboclass2.grid(column=3, row=2)
 #TODO : make entry To get Learning Rate
 
 #learning Rate
-titleLearningRate= Label( text="learning Rate :",bg="gold")
+titleLearningRate= Label( text="learning Rate :",bg="pink")
 titleLearningRate.grid(column=0,row=3)
 
 entryfiledRate=Entry()
@@ -104,7 +104,7 @@ entryfiledRate.grid(column=1,row=3)
 #Epochs
 #TODO : make entry To get Epochs
 
-titleEpochs=Label( text="Epochs :",bg="gold")
+titleEpochs=Label( text="Epochs :",bg="pink")
 titleEpochs.grid(column=2,row=3)
 
 
@@ -124,12 +124,17 @@ Checkbox.grid(column=4,row=3)
 #TODO : Button RUN
 string_answer = entryfiledEpochs.get()
 print(type(string_answer))
-buttonRun =Button(text="Run..." ,bg="cyan",command =lambda  :t.Asmain(entryfiledRate.get(),entryfiledEpochs.get()))
+buttonRun =Button(text="Run..." ,bg="pink",command =lambda  :t.Asmain(entryfiledRate.get(),entryfiledEpochs.get(),combo.get(),combo2.get(),comboclass1.get(),comboclass2.get()))
 #buttonRun =Button(text="Run..." ,bg="cyan",command= lambda: tst.Presptron(combo.get(),combo2.get(),comboclass1.get(),comboclass2.get(),entryfiledRate.get(),entryfiledEpochs.get(),var.get()))
 buttonRun.grid(column=1,row=4)
 
 
+bg_image = PhotoImage(file = "sakura.png")
+x = Label (image = bg_image)
+x.grid(row = 4, column = 5)
 
+
+#window.configure(background='pink')
 
 window.mainloop()
 
